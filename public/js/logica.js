@@ -1,8 +1,13 @@
 //Crear una instancia de SocketIO, recibe como parámetro el url del servidor al que se conectará
 var socket = io();
+const usuario = localStorage.getItem('usuario')
+if (usuario == null) {
+  window.location.assign('/')
+}
+
+const fecha = new Date();
 
 let mensaje = document.getElementById('mensaje');
-let usuario = document.getElementById('usuario');
 let salida = document.getElementById('salida');
 let notificaciones = document.getElementById('notificaciones');
 let boton = document.getElementById('enviar');
@@ -12,11 +17,11 @@ var clientes = [];
 boton.addEventListener('click', () => {
   var data = {
     mensaje: mensaje.value,
-    usuario: usuario.value,
+    usuario: usuario,
   }
 
-  if ( mensaje.value === '' || usuario.value === '') {
-    alert('Se requiere un mensaje y un usuario')
+  if ( mensaje.value === '') {
+    alert('Se requiere un mensaje')
   } else {
     mensaje.value = '';
     socket.emit('chat:mensaje', data);
@@ -24,11 +29,15 @@ boton.addEventListener('click', () => {
 })
 
 mensaje.addEventListener('keydown', () => {
-  socket.emit('chat:escribiendo', usuario.value);
+  socket.emit('chat:escribiendo', usuario);
 })
 
 socket.on('chat:mensaje', data => {
-  salida.innerHTML += '<p><strong>' + data.usuario + '</strong>: ' + data.mensaje + '</p>'
+  if (data.usuario == usuario){
+    salida.innerHTML += '<div><div class="mensaje-blue"><span>' + fecha.toLocaleTimeString() + '</span><p><strong>' + data.usuario + '</strong>: ' + data.mensaje + '</p></div></div>';
+  } else {
+    salida.innerHTML += '<div><div class="mensaje"><span>' + fecha.toLocaleTimeString() + '</span><p><strong>' + data.usuario + '</strong>: ' + data.mensaje + '</p></div></div>';
+  }
   notificaciones.innerHTML = '';
 })
 

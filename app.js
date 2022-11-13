@@ -12,7 +12,6 @@ server.listen(app.get('port'), () => console.log('Servidor'));
 app.use(express.static('public'));
 
 app.get('/', function (req, res) {
-  console.log('hola prro')
   res.sendFile(__dirname + '/public');
 });
 

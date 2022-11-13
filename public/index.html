@@ -1,31 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <title>Socket Basico</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/index.css">
 </head>
 
 <body>
-  <center><h1>Chat</h1></center>
-
-  <div class="cart">
-    <div id="chat">
-      <div id="notificaciones"></div>
-
-      <input type="text" id="usuario" placeholder="Usuario" class="text-success" required>
-      <input type="text" id="mensaje" placeholder="Mensaje" class="text-success" required>
-      <button class="enviar" id="enviar">enviar</button>
-
+  <div class="container">
+    <img src="./img/usuario.png" alt="">
+    <h1>¡Bienvenido!</h1>
+    <input type="text" id="usuario" placeholder="Introducte tu nombre" onchange="iniciar_usuario()">
+    <div>
+      <a href="./chat.html">Aceptar</a>
     </div>
-    <siv id="salida"></siv>
   </div>
-
-
-  <script src="js/socket.io.js"></script>
-  <script src="js/logica.js" charset="utf-8"></script>
-
-
+  <span class="left"></span>
+  <span class="right"></span>
+  <script src="./js/iniciarUsuario.js"></script>
 </body>
 
 </html>

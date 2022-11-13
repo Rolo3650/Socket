@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(#00c8ff, #0083ff);
+    position: relative;
+}
+
+.left {
+    position: absolute;
+    top: 25%;
+    left: -50%;
+    z-index: -10;
+    display: inline-block;
+    height: 100vw;
+    width: 100vw;
+    box-shadow: 0 0 100px 1px #00c8ff;
+    background: none;
+    border-radius: 50%;
+}
+
+.right {
+    position: absolute;
+    left: 50%;
+    bottom: 25%;
+    z-index: -10;
+    display: inline-block;
+    height: 100vw;
+    width: 100vw;
+    box-shadow: 0 0 100px 1px #00c8ff;
+    background: none;
+    border-radius: 50%;
+}
+
+#chat{
+    position: absolute;
+    padding: 5vh 5vw;
+    box-sizing: border-box;
+    bottom: 0;
+    width: 100vw;
+    background-color: white;
+    border-top-right-radius: 100px;
+    border-top-left-radius: 20px;
+}
+
+h1{
+    height: 10vh;
+    text-align: center;
+    color: white;
+}
+
+input{
+    font-size: 1rem;
+}
+
+input::placeholder{
+    font-family: 'Quicksand', sans-serif;
+}
+
+button{
+    margin-left: 5px;
+    padding: .5rem 1rem;
+    display: inline-block;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 800;
+    text-decoration: none;
+    border: 1px solid #00c8ff;
+    background-color: #00c8ff;
+    color: white;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+button:hover {
+    color: #00c8ff;
+    background-color: white;
+}
+
+#salida{
+    height: 70vh;
+    padding: 0 1rem;
+    overflow-y: scroll;
+}
+
+.mensaje{
+    margin-bottom: 10px;
+    display: inline-block;
+    padding: .5rem 1rem;
+    background-color: white;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.mensaje-blue{
+    margin-bottom: 10px;
+    display: inline-block;
+    padding: .5rem 1rem;
+    background-color: #0083ff;
+    color: white;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.mensaje span, .mensaje-blue span{
+    font-size: 12px;
+}
